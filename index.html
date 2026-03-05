@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JANAYAKAN - Oru Pera Varalaru</title>
+
+<style>
+
+body{
+margin:0;
+color:white;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+
+/* FULL BACKGROUND IMAGE */
+
+background-image:url("C:/Users/bala3/Downloads/Jana Nayagan Thalapathy Vijay.jpeg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+/* Dark overlay */
+
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+z-index:-1;
+}
+
+/* Title */
+
+h1{
+font-size:80px;
+color:gold;
+text-shadow:0 0 20px red,0 0 40px orange;
+margin-top:40px;
+}
+
+/* Countdown */
+
+#countdown{
+font-size:120px;
+margin-top:150px;
+}
+
+/* Video */
+
+#videoSection{
+display:none;
+}
+
+video{
+width:70%;
+border-radius:15px;
+box-shadow:0 0 30px white;
+margin-top:30px;
+}
+
+.flash{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+opacity:0;
+pointer-events:none;
+}
+
+.lightning{
+animation:flash 0.3s;
+}
+
+@keyframes flash{
+0%{opacity:0;}
+50%{opacity:0.9;}
+100%{opacity:0;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="flash" id="flash"></div>
+
+<h1>🔥 JANAYAKAN 🔥</h1>
+<h2>Oru Pera Varalaru</h2>
+
+<div id="countdown">3</div>
+
+<div id="videoSection">
+
+<video id="myVideo" muted controls>
+
+<source src="C:/Users/bala3/Downloads/YTDown.com_YouTube_Jana-Nayagan-Thalapathy-Kacheri-Lyric-Vi_Media_KgpnfT5bgLY_002_720p.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+<script>
+
+let count=3;
+
+let timer=setInterval(function(){
+
+count--;
+
+document.getElementById("countdown").innerHTML=count;
+
+if(count<=0){
+
+clearInterval(timer);
+
+document.getElementById("countdown").style.display="none";
+
+document.getElementById("videoSection").style.display="block";
+
+let video=document.getElementById("myVideo");
+video.play();
+
+}
+
+},1000);
+
+/* Lightning */
+
+setInterval(function(){
+
+let flash=document.getElementById("flash");
+
+flash.classList.add("lightning");
+
+setTimeout(()=>flash.classList.remove("lightning"),200);
+
+},4000);
+
+</script>
+
+</body>
+</html>
